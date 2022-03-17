@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +10,22 @@ namespace tpmodul4_1302200089
     {
         public static void Main(string[] args)
         {
+
             Console.Write("Nama anda : ");
             String n = Console.ReadLine();
             
             HaloGeneric.SapaUser<String>(n);
 
+            Console.Write("NIM anda : ");
+            String nim = Console.ReadLine();
+
+            DataGeneric<string> dataGeneric = new DataGeneric<string>(nim);
+            dataGeneric.PrintData();
+
+
         }
     }
+
 
     class HaloGeneric
     {
@@ -26,4 +34,19 @@ namespace tpmodul4_1302200089
             Console.WriteLine("Halo user " + nama);
         }
     }
+
+    class DataGeneric<T>
+        {
+            private T data;
+            public DataGeneric(T Data)
+            {
+                this.data = Data;
+            }
+
+            public void PrintData()
+            {
+                Console.WriteLine("NIM yang diinput adalah " + data);
+
+            }
+        }
 }
